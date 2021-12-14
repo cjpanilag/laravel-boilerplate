@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest as BaseRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Validation\Validator;
 
 use App\Exceptions\UnauthorizedException;
 use App\Exceptions\ValidationException;

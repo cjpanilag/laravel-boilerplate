@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\Admin\UserIndexRequest;
 
 class UserController extends Controller
 {
@@ -12,7 +13,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserIndexRequest $request)
     {
         $users = new User;
 

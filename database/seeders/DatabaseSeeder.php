@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'super admin',
             'first_name' => 'super admin',
             'last_name' => 'admin',
-            'username' => 'useradmin',
+            'username' => 'superadmin',
             'user_type' => 'admin',
             'email' => 'superadmin@gmail.com',
             'password' => Hash::make('adminpassword'),

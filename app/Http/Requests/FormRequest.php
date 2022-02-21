@@ -39,28 +39,6 @@ class FormRequest extends BaseRequest
         }
     }
 
-    public function mustBeBasicUser()
-    {
-        if (Auth::guard('api')->check()) {
-            $user = Auth::guard('api')->user();
-            
-            return $user->isBasicUser();
-        } else {
-            return FALSE;
-        }
-    }
-
-    public function mustBeStoreAdmin()
-    {
-        if (Auth::guard('api')->check()) {
-            $user = Auth::guard('api')->user();
-            
-            return $user->isStoreAdmin();
-        } else {
-            return FALSE;
-        }
-    }
-
     public function mustBeAdmin()
     {
         if (Auth::guard('api')->check()) {
@@ -71,15 +49,4 @@ class FormRequest extends BaseRequest
             return FALSE;
         }
     }
-
-    public function mustBeStoreAdminOrSuperAdmin()
-    {
-        if (Auth::guard('api')->check()) {
-            $user = Auth::guard('api')->user();
-            
-            return $user->isStoreAdminOrSuperAdmin();
-        } else {
-            return FALSE;
-        }
-    }    
 }

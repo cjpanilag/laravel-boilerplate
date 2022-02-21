@@ -19,12 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'first_name',
-        'last_name',
-        'username',
-        'user_type',
         'email',
-        'is_approved',
         'password',
     ];
 
@@ -36,8 +31,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'created_at',
-        'updated_at'
     ];
 
     /**
@@ -49,43 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function stores()
-    {
-        return $this->hasMany('App\Models\Store');
-    }
-
-    public function carts()
-    {
-        return $this->hasMany('App\Models\Cart');
-    }
-
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
-
-    public function isBasicUser()
-    {
-        return $this->user_type === 'basic_user';
-    }
-
     public function isSuperAdmin()
     {
         return $this->user_type === 'admin';
-    }
-
-    public function isStoreAdmin()
-    {
-        return $this->user_type === 'store_admin';
-    }
-
-    public function isStoreAdminOrSuperAdmin()
-    {
-        return $this->user_type === 'store_admin' || $this->user_type === 'admin';
-    }
-
-    public function getIsApprovedAttribute($value)
-    {
-        return $value ? true : false;
     }
 }
